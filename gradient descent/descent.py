@@ -12,8 +12,6 @@
 
 def gradient_descent(function, cur_x, epoch, precision):
     gamma              = 0.01  # step size multiplier (learning rate)
-    # We want to keep the learning rate small because
-    # we don't want the algorithm to overshoot the minimum value
     previous_step_size = 1
     iters              = 0     # iteration counter
     while previous_step_size > precision and iters < epoch:
