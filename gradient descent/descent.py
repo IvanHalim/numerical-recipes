@@ -33,4 +33,5 @@ if __name__ == '__main__':
     x = gradient_descent(df, 6, 10000, 0.00001)
     
     print("The local minimum occurs at", x)
-    # The output for the above will be: ('The local minimum occurs at', 2.2499646074278457)
+    # The output for the above will be:
+    # 'The local minimum occurs at 2.2499646074278457'
