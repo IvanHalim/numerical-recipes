@@ -1,7 +1,11 @@
-# We're looking to find the local minimum of the function f(x) = x^4 - 3x^3 + 2.
-# To do this, we find the derivative f'(x) = 4x^3 - 9x^2.
+# We're looking to find the local minimum of the function:
+#
+#   f(x)  = x^4  - 3x^3 + 2
+#   f'(x) = 4x^3 - 9x^2
+#
 # Given a starting value x, the algorithm will follow the
 # gradient at x until a local minimum value is found.
+#
 # We use gradient descent rather than direct calculation because
 # it is computationally cheaper for large amount of data and
 # because it is a more general method.
