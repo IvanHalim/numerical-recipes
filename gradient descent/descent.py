@@ -10,13 +10,11 @@
 # it is computationally cheaper for large amount of data and
 # because it is a more general method.
 
-def gradient_descent(function, cur_x):
-    gamma              = 0.01    # step size multiplier (learning rate)
-    precision          = 0.00001 # the minimum value will be within 0.00001 error
+def gradient_descent(function, cur_x, epoch, precision):
+    gamma              = 0.01  # step size multiplier (learning rate)
     previous_step_size = 1
-    max_iters          = 10000   # maximum number of iterations
-    iters              = 0       # iteration counter
-    while previous_step_size > precision and iters < max_iters:
+    iters              = 0     # iteration counter
+    while previous_step_size > precision and iters < epoch:
         prev_x = cur_x
         cur_x -= gamma * function(prev_x)
         previous_step_size = abs(cur_x - prev_x)
@@ -24,7 +22,14 @@ def gradient_descent(function, cur_x):
     return cur_x
 
 if __name__ == '__main__':
+
+    # f'(x) = 4x^3 - 9x^2
     df = lambda x: 4 * x**3 - 9 * x**2
-    x = gradient_descent(df, 6) # The algorithm starts at x = 6
+    
+    # The algorithm starts at x = 6
+    # Iterate 10000 times
+    # With a precision of 0.00001
+    x = gradient_descent(df, 6, 10000, 0.00001)
+    
     print("The local minimum occurs at", x)
     # The output for the above will be: ('The local minimum occurs at', 2.2499646074278457)
