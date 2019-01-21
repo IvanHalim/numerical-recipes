@@ -9,7 +9,7 @@
 # We use gradient descent rather than direct calculation
 # because it is computationally cheaper for large amount
 # of data and because it is a more general method. Also,
-# some problems simply doesn't have a predefined formula.
+# some problems simply don't have a predefined formula.
 
 def gradient_descent(function, cur_x, epoch, precision):
     gamma              = 0.01  # step size multiplier (learning rate)
