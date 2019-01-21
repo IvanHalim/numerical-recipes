@@ -11,11 +11,11 @@
 # because it is a more general method.
 
 def gradient_descent(function, cur_x):
-    gamma = 0.01 # step size multiplier
-    precision = 0.00001
+    gamma              = 0.01    # step size multiplier
+    precision          = 0.00001 # the minimum value will be within 0.00001 error
     previous_step_size = 1
-    max_iters = 10000 # maximum number of iterations
-    iters = 0 # iteration counter
+    max_iters          = 10000   # maximum number of iterations
+    iters              = 0       # iteration counter
     while previous_step_size > precision and iters < max_iters:
         prev_x = cur_x
         cur_x -= gamma * function(prev_x)
