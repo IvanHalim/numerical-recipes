@@ -13,7 +13,7 @@ class Perceptron:
         self.weights = np.zeros(1 + X.shape[1])
         self.errors  = []
 
-        for _ in xrange(self.epoch):
+        for _ in range(self.epoch):
             error = 0
             for xi, target in zip(X, y):
                 update = self.alpha * (target - self.predict(xi))
@@ -25,7 +25,7 @@ class Perceptron:
 
     def net_input(self, X):
         ## Net input is the sum of w*x
-        return np.dot(X, self.weights[:1]) + self.weights[0]
+        return np.dot(X, self.weights[1:]) + self.weights[0]
 
     def predict(self, X):
         ## If net input > 0.0 then return 1, else return -1
