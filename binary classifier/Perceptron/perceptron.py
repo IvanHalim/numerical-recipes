@@ -1,5 +1,8 @@
 import numpy as np
 
+## Perceptrons are the building blocks of neural networks
+## they are the basic units from which more complex neural networks are built.
+
 class Perceptron:
     def __init__(self, alpha = 0.01, epoch = 10):
         ## alpha is the learning rate
