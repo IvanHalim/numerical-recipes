@@ -12,7 +12,7 @@ class Perceptron:
 
     def fit(self, X, y):
         """The weights is a 1d array with a length of 1 + the number of features in X.
-        We add 1 for the zero-weight, which is the threshold"""
+        We add 1 for the zero-weight, which is the bias/threshold"""
         self.weights = np.zeros(1 + X.shape[1])
         self.errors  = []
 
@@ -27,7 +27,7 @@ class Perceptron:
         return self
 
     def net_input(self, X):
-        ## Net input is the sum of w*x
+        ## Net input is the sum of w*x plus the bias
         return np.dot(X, self.weights[1:]) + self.weights[0]
 
     def predict(self, X):
