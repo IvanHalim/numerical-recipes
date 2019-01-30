@@ -29,6 +29,7 @@ class Perceptron:
 
                 # Increment the error if update is not zero
                 error += int(update != 0.0)
+            # At the end of each epoch, append error to self.errors
             self.errors.append(error)
         return self
 
