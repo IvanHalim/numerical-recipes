@@ -23,6 +23,10 @@ class Perceptron:
         for _ in range(self.epoch):
             error = 0 # Initialize a zero error
             for xi, target in zip(X, y):
+
+                ## We calculate the update by finding the difference between
+                ## the actual label and the predicted label, multiplied by the
+                ## learning rate.
                 update = self.alpha * (target - self.predict(xi))
                 self.weights[1:] += update * xi
                 self.weights[0]  += update
