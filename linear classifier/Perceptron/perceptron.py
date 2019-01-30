@@ -15,12 +15,14 @@ class Perceptron:
         We add 1 for the zero-weight, which is the bias/threshold"""
         self.weights = np.zeros(1 + X.shape[1])
         self.errors  = []
+
         for _ in range(self.epoch):
             error = 0
             for xi, target in zip(X, y):
                 update = self.alpha * (target - self.predict(xi))
                 self.weights[1:] += update * xi
                 self.weights[0]  += update
+
                 # Increment the error if update is not zero
                 error += int(update != 0.0)
             self.errors.append(error)
