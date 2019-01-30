@@ -5,10 +5,8 @@ import numpy as np
 
 class Perceptron:
     def __init__(self, alpha = 0.01, epoch = 10):
-        ## alpha is the learning rate
-        ## epoch is the number of passes over the training set
-        self.alpha = alpha
-        self.epoch = epoch
+        self.alpha = alpha ## alpha is the learning rate
+        self.epoch = epoch ## epoch is the number of passes over the training set
 
     def fit(self, X, y):
         """The weights is a 1d array with a length of 1 + the number of features in X.
