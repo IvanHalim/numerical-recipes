@@ -27,9 +27,10 @@ class Perceptron:
         return self
 
     def net_input(self, X):
-        ## Net input is the sum of w*x plus the bias
+        ## Net input is weighted sum, that is the sum of w*x plus the bias
         return np.dot(X, self.weights[1:]) + self.weights[0]
 
     def predict(self, X):
+        ## This is the activation function, which uses the Heaviside step function
         ## If net input > 0.0 then return 1, else return -1
         return np.where(self.net_input(X) >= 0.0, 1, -1)
