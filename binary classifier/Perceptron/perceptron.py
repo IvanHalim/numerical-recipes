@@ -22,6 +22,8 @@ class Perceptron:
                 update = self.alpha * (target - self.predict(xi))
                 self.weights[1:] += update * xi
                 self.weights[0]  += update
+
+                # Increment the error if update is not zero
                 error += int(update != 0.0)
             self.errors.append(error)
         return self
