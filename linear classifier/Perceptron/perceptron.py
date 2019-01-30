@@ -11,13 +11,17 @@ class Perceptron:
         self.epoch = epoch
 
     def fit(self, X, y):
-        """The weights is a 1d array with a length of 1 + the number of features in X.
-        We add 1 for the zero-weight, which is the bias/threshold"""
+        ## self.weights is a 1d array with a length of 1 + the number of features in X.
+        ## We add 1 for the zero-weight, which is the bias/threshold
         self.weights = np.zeros(1 + X.shape[1])
+
+        # We want to find how many times the perceptron predicted wrongly in each epoch
+        # self.errors is a list where self.errors[0] is the number of errors in epoch 1,
+        # self.errors[1] is the number of errors in epoch 2, etc
         self.errors  = []
 
         for _ in range(self.epoch):
-            error = 0
+            error = 0 # Initialize a zero error
             for xi, target in zip(X, y):
                 update = self.alpha * (target - self.predict(xi))
                 self.weights[1:] += update * xi
