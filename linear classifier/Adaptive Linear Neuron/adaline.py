@@ -1,3 +1,4 @@
+import numpy as np
 
 class AdalineGD:
     def __init__(self, eta = 0.01, epoch = 50):
