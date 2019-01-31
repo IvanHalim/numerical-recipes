@@ -1,9 +1,8 @@
 import numpy as np
 
 class LinearRegression:
-
-    def __init__(self, alpha = 0.01, epoch = 15000):
-        self.alpha = alpha
+    def __init__(self, eta = 0.01, epoch = 15000):
+        self.eta   = eta
         self.epoch = epoch
 
     def fit(self, X, y):
