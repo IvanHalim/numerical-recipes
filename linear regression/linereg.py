@@ -3,18 +3,22 @@ def update_w_and_b(spendings, sales, w, b, alpha):
     dl_db = 0.0
     N = len(spendings)
     for i in range(N):
-        dl_dw += -2*spendings[i]*(sales[i] - (w*spendings[i] + b))
-        dl_db += -2*(sales[i] - (w*spendings[i] + b))
+        output = predict(spendings[i], w, b)
+        error  = sales[i] - output
+        dl_dw  += spendings[i] * error
+        dl_db  += error
     # update w and b
-    w = w - (1/float(N))*dl_dw*alpha
-    b = b - (1/float(N))*dl_db*alpha
+    w += (2/float(N)) * dl_dw * alpha
+    b += (2/float(N)) * dl_db * alpha
     return w, b
 
 def avg_loss(spendings, sales, w, b):
     N = len(spendings)
     total_error = 0.0
     for i in range(N):
-        total_error += (sales[i] - (w*spendings[i] + b))**2
+        output = predict(spendings[i], w, b)
+        error  = sales[i] - output
+        total_error += error**2
     return total_error / float(N)
 
 def train(spendings, sales, w, b, alpha, epochs):
@@ -26,7 +30,7 @@ def train(spendings, sales, w, b, alpha, epochs):
     return w, b
 
 def predict(x, w, b):
-    return w*x + b
+    return w * x + b
 
 if __name__ == '__main__':
     w, b = train(x, y, 0.0, 0.0, 0.001, 15000)
