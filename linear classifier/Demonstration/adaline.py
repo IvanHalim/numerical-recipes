@@ -10,7 +10,7 @@ class AdalineGD:
         self.costs   = []
 
         for _ in range(self.epoch):
-            output = self.activation(X)
+            output = self.net_input(X)
             errors = y - output
             self.weights[1:] += self.eta * X.T.dot(errors)
             self.weights[0]  += self.eta * errors.sum()
@@ -21,8 +21,5 @@ class AdalineGD:
     def net_input(self, X):
         return np.dot(X, self.weights[1:]) + self.weights[0]
 
-    def activation(self, X):
-        return self.net_input(X)
-
     def predict(self, X):
-        return np.where(self.activation(X) >= 0.0, 1, -1)
+        return np.where(self.net_input(X) >= 0.0, 1, -1)

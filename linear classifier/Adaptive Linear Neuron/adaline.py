@@ -30,8 +30,5 @@ class AdalineGD:
     def net_input(self, X):
         return np.dot(X, self.weights[1:]) + self.weights[0]
 
-    def activation(self, X):
-        return self.net_input(X)
-
     def predict(self, X):
-        return np.where(self.activation(X) >= 0.0, 1, -1)
+        return np.where(self.net_input(X) >= 0.0, 1, -1)
