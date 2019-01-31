@@ -9,7 +9,7 @@ class LinearRegression:
         self.weights = np.zeros(1 + X.shape[1])
         self.costs   = []
 
-        N = X.shape[1]
+        N = len(y)
         for _ in range(self.epoch):
             output = self.predict(X)
             errors = y - output
