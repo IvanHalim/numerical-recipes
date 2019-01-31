@@ -1,5 +1,15 @@
 import numpy as np
 
+## This is an improvement over the standard perceptron architecture.
+## The difference between Adaline and the standard perceptron is that
+## the weights are updated based on a linear activation function
+## rather than a unit step function.
+##
+## The advantage of this linear activation function is that it's
+## differentiable. We can now use the gradient descent rule for
+## linear regression to find the weights that minimize our cost
+## function.
+
 class AdalineGD:
     def __init__(self, eta = 0.01, epoch = 50):
         self.eta   = eta
