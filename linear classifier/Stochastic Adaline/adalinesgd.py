@@ -1,3 +1,13 @@
+"""
+This is a version of Adaline which uses stochastic gradient descent to update the weights.
+In standard (batch) gradient descent, the gradient is calculated from the whole training set.
+Computationally, this is quite expensive. Instead, we approximate the gradient by taking
+a random sample from the training set and updating the weights incrementally.
+
+To obtain accurate results via stochastic gradient descent, it is important to randomize
+the training set at the start of each epoch to minimize biases in our estimation.
+"""
+
 import numpy as np
 from numpy.random import seed
 

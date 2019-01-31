@@ -1,7 +1,7 @@
-import numpy as np
-
 ## Perceptrons are the building blocks of neural networks
 ## they are the basic units from which more complex neural networks are built.
+
+import numpy as np
 
 class Perceptron:
     def __init__(self, eta = 0.01, epoch = 10):
