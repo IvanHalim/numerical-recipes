@@ -11,7 +11,7 @@ class LinearRegression:
 
         N = len(y)
         for _ in range(self.epoch):
-            output = self.predict(X)
+            output = self.net_input(X)
             errors = y - output
             self.weights[1:] += (2/float(N)) * self.eta * X.T.dot(errors)
             self.weights[0]  += (2/float(N)) * self.eta * errors.sum()
