@@ -6,9 +6,8 @@ import numpy as np
 ## rather than a unit step function.
 ##
 ## The advantage of this linear activation function is that the cost
-## function is differentiable. We can now use the gradient descent rule
-## for linear regression to find the weights that minimize our cost
-## function.
+## function is differentiable. We can now apply gradient descent to
+## find the weights that minimize our cost function.
 
 class AdalineGD:
     def __init__(self, eta = 0.01, epoch = 50):
