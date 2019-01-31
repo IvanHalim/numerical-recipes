@@ -9,12 +9,13 @@ class AdalineGD:
         self.weights = np.zeros(1 + X.shape[1])
         self.costs   = []
 
-        for i in range(self.epoch):
+        N = X.shape[1]
+        for _ in range(self.epoch):
             output = self.activation(X)
             errors = y - output
-            self.weights[1:] += self.eta * X.T.dot(errors)
-            self.weights[0]  += self.eta * errors.sum()
-            cost = (errors**2).sum() / len(errors)
+            self.weights[1:] += (2/float(N)) * self.eta * X.T.dot(errors)
+            self.weights[0]  += (2/float(N)) * self.eta * errors.sum()
+            cost = (errors**2).sum() / float(N)
             self.costs.append(cost)
         return self
 
