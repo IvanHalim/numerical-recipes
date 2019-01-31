@@ -4,10 +4,10 @@ import numpy as np
 ## they are the basic units from which more complex neural networks are built.
 
 class Perceptron:
-    def __init__(self, alpha = 0.01, epoch = 10):
-        ## alpha is the learning rate
+    def __init__(self, eta = 0.01, epoch = 10):
+        ## eta is the learning rate
         ## epoch is the number of passes over the training set
-        self.alpha = alpha
+        self.eta   = eta
         self.epoch = epoch
 
     def fit(self, X, y):
@@ -27,7 +27,7 @@ class Perceptron:
                 ## We calculate the update by finding the difference between
                 ## the actual label and the predicted label, multiplied by the
                 ## learning rate.
-                update = self.alpha * (target - self.predict(xi))
+                update = self.eta * (target - self.predict(xi))
                 self.weights[1:] += update * xi
                 self.weights[0]  += update
 
