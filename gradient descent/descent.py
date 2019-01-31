@@ -8,8 +8,7 @@
 #
 # Gradient descent is an iterative method to find the local
 # minimum of a function. We use an iterative method rather
-# than the closed form solution because it's computationally
-# cheaper.
+# than the direct method because it's computationally cheaper.
 
 def gradient_descent(function, cur_x, epoch, precision):
     gamma              = 0.01  # step size multiplier (learning rate)
