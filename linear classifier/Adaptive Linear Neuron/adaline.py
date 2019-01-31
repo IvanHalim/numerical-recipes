@@ -19,7 +19,7 @@ class AdalineGD:
         self.costs   = []
 
         for _ in range(self.epoch):
-            output = self.activation(X)
+            output = self.net_input(X)
             errors = y - output
             self.weights[1:] += self.eta * X.T.dot(errors)
             self.weights[0]  += self.eta * errors.sum()

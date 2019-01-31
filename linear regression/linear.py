@@ -9,13 +9,12 @@ class LinearRegression:
         self.weights = np.zeros(1 + X.shape[1])
         self.costs   = []
 
-        N = len(y)
         for _ in range(self.epoch):
             output = self.net_input(X)
             errors = y - output
-            self.weights[1:] += (2/float(N)) * self.eta * X.T.dot(errors)
-            self.weights[0]  += (2/float(N)) * self.eta * errors.sum()
-            cost = (errors**2).sum() / float(N)
+            self.weights[1:] += self.eta * X.T.dot(errors)
+            self.weights[0]  += self.eta * errors.sum()
+            cost = (errors**2).sum() / 2.0
             self.costs.append(cost)
         return self
 
