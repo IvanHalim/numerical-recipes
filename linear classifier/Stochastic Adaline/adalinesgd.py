@@ -5,7 +5,7 @@ Computationally, this is quite expensive. Instead, we approximate the gradient b
 a random sample from the training set and updating the weights incrementally.
 
 To obtain accurate results via stochastic gradient descent, it is important to randomize
-the training set at the start of each epoch to minimize biases in our estimation.
+the training set at the start of every epoch to minimize biases in our estimation.
 """
 
 import numpy as np
