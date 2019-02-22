@@ -3,10 +3,11 @@ import pandas as pd
 import numpy as np
 
 # Number of random draws from the prior
-n_draw = 10000
+n_draws = 10000
 
-# Defining and drawing from the prior distribution
-prior_rate = pd.Series(np.random.uniform(0, 1, size = n_draw))
+# Sample n_draws draws from the prior distribution into a pandas Series (to have convenient
+# methods available for histograms and descriptive statistics, e.g. median)
+prior_rate = pd.Series(np.random.uniform(0, 1, size = n_draws))
 
 # It's always good to eyeball the prior to make sure it looks ok
 prior_rate.hist()
@@ -15,18 +16,16 @@ prior_rate.hist()
 def gen_model(prob):
     return(np.random.binomial(16,prob))
 
-# the generative model
-subscribers = list()
-
-# Simulating the data
+# Simulating the data using the parameters from the prior and the generative model
+sim_data = list()
 for p in prior_rate:
-    subscribers.append(gen_model(p))
+    sim_data.append(gen_model(p))
 
 # Observed data
 observed_data = 6
 
 # Here you filter off all draws that do not match the data
-post_rate = prior_rate[list(map(lambda x: x == observed_data, subscribers))]
+post_rate = prior_rate[list(map(lambda x: x == observed_data, sim_data))]
 
 post_rate.hist() # Eyeball the posterior
 
@@ -36,5 +35,5 @@ post_rate.hist() # Eyeball the posterior
 # Now you can summarize the posterior, where a common summary is to take the mean or the median posterior,
 # and perhaps a 95% quantile interval.
 
-print('Number of draws left: %d, Posterior mean: %.3f, Posterior median: %.3f, Posterior 95%% quantile interval: %.3f-%.3f' %
+print('Number of draws left: %d\nPosterior mean: %.3f\nPosterior median: %.3f\nPosterior 95%% quantile interval: %.3f-%.3f' %
       (len(post_rate), post_rate.mean(), post_rate.median(), post_rate.quantile(.025), post_rate.quantile(.975)))
