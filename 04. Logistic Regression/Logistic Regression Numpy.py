@@ -1,6 +1,6 @@
 import numpy as np
 
-class LinearRegression:
+class LogisticRegression:
     def __init__(self, eta = 0.01, epoch = 15000):
         self.eta   = eta
         self.epoch = epoch
