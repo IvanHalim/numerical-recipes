@@ -1,2 +1,2 @@
 # Numerical Recipes
-I'm not calling it Machine Learning because I don't wanna feed into the hype
+I'm not calling it mAcHiNe LeArNiNg because I don't wanna feed into the hype
